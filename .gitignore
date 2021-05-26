@@ -22,10 +22,10 @@
 Thumbs.db
 
 # Yarn files
-yarn-error.log
-.yarn-integrity
-.yarn/build-state.yml
-.yarn/cache
-.yarn/install-state.gz
-.yarn/unplugged
-.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
