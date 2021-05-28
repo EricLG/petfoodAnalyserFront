@@ -289,6 +289,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/localize@npm:^12.0.2":
+  version: 12.0.2
+  resolution: "@angular/localize@npm:12.0.2"
+  dependencies:
+    "@babel/core": 7.8.3
+    glob: 7.1.7
+    yargs: ^16.2.0
+  peerDependencies:
+    "@angular/compiler": 12.0.2
+    "@angular/compiler-cli": 12.0.2
+  bin:
+    localize-extract: src/tools/src/extract/main.js
+    localize-migrate: src/tools/src/migrate/main.js
+    localize-translate: src/tools/src/translate/main.js
+  checksum: a0738d526639010d399ab9b4b0c81f509d415e7c0590824db67e1d5901fbec55c53931d8aa810b4ec7467c17ceceb0a5894da30d3986a91e0210b4c820ed72f3
+  languageName: node
+  linkType: hard
+
 "@angular/platform-browser-dynamic@npm:~12.0.1":
   version: 12.0.1
   resolution: "@angular/platform-browser-dynamic@npm:12.0.1"
@@ -342,7 +360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13":
+"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.8.3":
   version: 7.12.13
   resolution: "@babel/code-frame@npm:7.12.13"
   dependencies:
@@ -381,7 +399,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:7.14.3, @babel/generator@npm:^7.14.2, @babel/generator@npm:^7.14.3":
+"@babel/core@npm:7.8.3":
+  version: 7.8.3
+  resolution: "@babel/core@npm:7.8.3"
+  dependencies:
+    "@babel/code-frame": ^7.8.3
+    "@babel/generator": ^7.8.3
+    "@babel/helpers": ^7.8.3
+    "@babel/parser": ^7.8.3
+    "@babel/template": ^7.8.3
+    "@babel/traverse": ^7.8.3
+    "@babel/types": ^7.8.3
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.1
+    json5: ^2.1.0
+    lodash: ^4.17.13
+    resolve: ^1.3.2
+    semver: ^5.4.1
+    source-map: ^0.5.0
+  checksum: 0e940e9ead7cc831cb3bcbe4429ea62aa9fdc7542d7ad11a69d7e6c8897337d3702d835c499c09bda98f044e872c620fdb406ad9c0ffbcc7a101c217e7a550ad
+  languageName: node
+  linkType: hard
+
+"@babel/generator@npm:7.14.3, @babel/generator@npm:^7.14.2, @babel/generator@npm:^7.14.3, @babel/generator@npm:^7.8.3":
   version: 7.14.3
   resolution: "@babel/generator@npm:7.14.3"
   dependencies:
@@ -636,7 +677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.14.0":
+"@babel/helpers@npm:^7.14.0, @babel/helpers@npm:^7.8.3":
   version: 7.14.0
   resolution: "@babel/helpers@npm:7.14.0"
   dependencies:
@@ -664,6 +705,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 5e8d1b2bfc53b59c7476c32adee20c8a4d19fdab58b04b6b177d89319bd76526219dad2f6ab6f51a80a518d0cbcdc3980b73c18bde16017aeee2dd8a50687fe3
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.8.3":
+  version: 7.14.4
+  resolution: "@babel/parser@npm:7.14.4"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 3bc067c1ee0e0178d365e1b2988ea1a0d6d37af37870ea1a7e80729b3bdc40acda083cac44ce72f63a5b31a489e35120f617bd41f312dec4c86cf814cff8e64a
   languageName: node
   linkType: hard
 
@@ -1521,7 +1571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:7.12.13, @babel/template@npm:^7.12.13":
+"@babel/template@npm:7.12.13, @babel/template@npm:^7.12.13, @babel/template@npm:^7.8.3":
   version: 7.12.13
   resolution: "@babel/template@npm:7.12.13"
   dependencies:
@@ -1532,7 +1582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.13.15, @babel/traverse@npm:^7.14.0, @babel/traverse@npm:^7.14.2":
+"@babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.13.15, @babel/traverse@npm:^7.14.0, @babel/traverse@npm:^7.14.2, @babel/traverse@npm:^7.8.3":
   version: 7.14.2
   resolution: "@babel/traverse@npm:7.14.2"
   dependencies:
@@ -1606,6 +1656,21 @@ __metadata:
     merge-source-map: ^1.1.0
     schema-utils: ^2.7.0
   checksum: f464969fce1c810faa4b134f4f2ac789df72400af06f408996fbfc5785bdc3c7da5c2cddfbd96230768de94bee33c7f2c17ef044e0c593cd352ac609af920c0f
+  languageName: node
+  linkType: hard
+
+"@ng-bootstrap/ng-bootstrap@npm:^9.1.1":
+  version: 9.1.1
+  resolution: "@ng-bootstrap/ng-bootstrap@npm:9.1.1"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": ^11.0.0
+    "@angular/core": ^11.0.0
+    "@angular/forms": ^11.0.0
+    "@angular/localize": ^11.0.0
+    rxjs: ^6.5.5
+  checksum: 406f2da12da7143c833a1f3e043ecebfd048a8c78573bfe0f6a0c07361594a4293f58eb500e3f30c8b60816bad81e87122fc930b83a890f258517ffe419bbdae
   languageName: node
   linkType: hard
 
@@ -2782,6 +2847,16 @@ __metadata:
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
   checksum: e827963c416fdb1dbcd57e066a43c40829518f4dcdc9f58ed04519daeebb610adacbb6cf102518bda9f08be593c5b1b49a83e36bf6b7d91b3403f7e35510eeae
+  languageName: node
+  linkType: hard
+
+"bootstrap@npm:^4.5.0":
+  version: 4.6.0
+  resolution: "bootstrap@npm:4.6.0"
+  peerDependencies:
+    jquery: 1.9.1 - 3
+    popper.js: ^1.16.1
+  checksum: 66019b6969b997eb3bcec7276010263df643b2607db00dbbd13f451d6f6d57fa5b563cd9712a4814024e5489faf5e2d73c553a1ebea1b61d0e1ab766e4805229
   languageName: node
   linkType: hard
 
@@ -4959,7 +5034,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"gensync@npm:^1.0.0-beta.2":
+"gensync@npm:^1.0.0-beta.1, gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
   checksum: d523437689c97b3aba9c5cdeca4677d5fff9a29d620db693fea40d852bad63563110f16979d0170248439dbcd2ecee0780fb2533d3f0519f019081aa10767c60
@@ -6151,7 +6226,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.1.2":
+"json5@npm:^2.1.0, json5@npm:^2.1.2":
   version: 2.2.0
   resolution: "json5@npm:2.2.0"
   dependencies:
@@ -6497,7 +6572,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.11, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
@@ -7729,13 +7804,16 @@ fsevents@~2.3.1:
     "@angular/compiler-cli": ~12.0.1
     "@angular/core": ~12.0.1
     "@angular/forms": ~12.0.1
+    "@angular/localize": ^12.0.2
     "@angular/platform-browser": ~12.0.1
     "@angular/platform-browser-dynamic": ~12.0.1
     "@angular/router": ~12.0.1
+    "@ng-bootstrap/ng-bootstrap": ^9.1.1
     "@types/jasmine": ~3.6.0
     "@types/node": ^12.11.1
     "@typescript-eslint/eslint-plugin": ^4.25.0
     "@typescript-eslint/parser": ^4.25.0
+    bootstrap: ^4.5.0
     eslint: ^7.27.0
     jasmine-core: ~3.7.0
     karma: ~6.3.0
@@ -9088,7 +9166,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"resolve@1.20.0, resolve@^1.1.7, resolve@^1.14.2":
+"resolve@1.20.0, resolve@^1.1.7, resolve@^1.14.2, resolve@^1.3.2":
   version: 1.20.0
   resolution: "resolve@npm:1.20.0"
   dependencies:
@@ -9098,7 +9176,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@1.20.0#builtin<compat/resolve>, resolve@patch:resolve@^1.1.7#builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#builtin<compat/resolve>":
+"resolve@patch:resolve@1.20.0#builtin<compat/resolve>, resolve@patch:resolve@^1.1.7#builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#builtin<compat/resolve>":
   version: 1.20.0
   resolution: "resolve@patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"
   dependencies:
@@ -9346,7 +9424,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"semver@npm:^5.5.0, semver@npm:^5.6.0":
+"semver@npm:^5.4.1, semver@npm:^5.5.0, semver@npm:^5.6.0":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
   bin:
