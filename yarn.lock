@@ -1878,6 +1878,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.170":
+  version: 4.14.170
+  resolution: "@types/lodash@npm:4.14.170"
+  checksum: 5ecc968649e764e3204435ba5125a3645e5e83963069a26b9307791698bf47ed9c2bd0f97488d9537eb4753d4bae596e5fa6187437a5b04bf47aba78fa553d50
+  languageName: node
+  linkType: hard
+
 "@types/minimatch@npm:*":
   version: 3.0.4
   resolution: "@types/minimatch@npm:3.0.4"
@@ -1885,17 +1892,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0":
+"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^15.6.1":
   version: 15.6.1
   resolution: "@types/node@npm:15.6.1"
   checksum: 07b3855bc0a1ba2215455a3ef4ed5e88711321b3cdc0ba1ea0286f6facbdf61530970b9fa7eec79eb1d46231f986c21ef3b7c1f1e0c365cf1b887d76b0addb86
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.11.1":
-  version: 12.20.13
-  resolution: "@types/node@npm:12.20.13"
-  checksum: 4e0f02ec78b8d911595b20b9a7c3ac6c8e5f77ab5c57d0c14197fa021dec2c791469e1597b890f0d443f3809c908952e9ea56a2866d3cccf6076ff8a4579d969
   languageName: node
   linkType: hard
 
@@ -7810,7 +7810,8 @@ fsevents@~2.3.1:
     "@angular/router": ~12.0.1
     "@ng-bootstrap/ng-bootstrap": ^9.1.1
     "@types/jasmine": ~3.6.0
-    "@types/node": ^12.11.1
+    "@types/lodash": ^4.14.170
+    "@types/node": ^15.6.1
     "@typescript-eslint/eslint-plugin": ^4.25.0
     "@typescript-eslint/parser": ^4.25.0
     bootstrap: ^4.5.0
@@ -7821,6 +7822,7 @@ fsevents@~2.3.1:
     karma-coverage: ~2.0.3
     karma-jasmine: ~4.0.0
     karma-jasmine-html-reporter: ^1.5.0
+    lodash: ^4.17.21
     rimraf: ^3.0.2
     rxjs: ~6.6.0
     tslib: ^2.1.0
