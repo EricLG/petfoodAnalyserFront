@@ -1,1 +1,1 @@
-export { DogsComponent } from "./dogs.component";
+export { DogsComponent } from './dogs.component'

@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
 
-import { HomeComponent } from './home';
-import { DogsComponent } from './dogs';
-import { CatsComponent } from './cats';
+import { CatsComponent } from './cats'
+import { DogsComponent } from './dogs'
+import { HomeComponent } from './home'
 
 @NgModule({
     declarations: [
         HomeComponent,
-        DogsComponent,
         CatsComponent,
+        DogsComponent,
     ],
     imports: [
         CommonModule
