@@ -10,4 +10,22 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
-rules: {}
+rules: {
+  no-multi-spaces: 'error',
+  array-bracket-spacing: ['error', 'never'],
+  block-spacing: ['error', 'always'],
+  brace-style: ["error", "1tbs", { "allowSingleLine": true }],
+  eol-last: ["error", "always"],
+  indent: ["error", 4],
+  linebreak-style: ["error", "unix"],
+  no-multiple-empty-lines: "error",
+  no-trailing-spaces: "error",
+  quotes: ["error", "single", { "avoidEscape": true }],
+  semi: ["error", "never"],
+  space-before-blocks: "error",
+  space-before-function-paren: ["error", "never"],
+  space-in-parens: ["error", "never"],
+  no-duplicate-imports: "error",
+  prefer-const: "error",
+  sort-imports: ["error", { "allowSeparatedGroups": true }]
+}
