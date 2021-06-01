@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core'
 import { CatsComponent } from './cats'
 import { DogsComponent } from './dogs'
 import { HomeComponent } from './home'
+import { PetfoodModule } from './petfood'
 
 @NgModule({
     declarations: [
@@ -12,7 +13,8 @@ import { HomeComponent } from './home'
         DogsComponent,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        PetfoodModule,
     ],
     providers: []
 })
