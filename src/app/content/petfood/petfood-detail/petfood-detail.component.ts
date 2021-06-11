@@ -26,12 +26,12 @@ export class PetfoodDetailComponent implements OnInit {
 
     getDetail(id: string): Petfood|undefined {
         const list: Petfood[] = [
-            { id: 1, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance miniature', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
-            { id: 2, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance moyennes', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
-            { id: 3, animal: 'dogs', brand: 'Aatu', name: 'Aatu', foodType: 'Croquettes', ingredients: 'Saumon, Hareng déshydraté, Patate douce' },
-            { id: 4, animal: 'cats', brand: '1ST CHOICE', name: 'Contrôle Du Poids Adulte', foodType: 'Croquettes', ingredients: 'Poulet frais, Farine de poulet, Riz' },
-            { id: 5, animal: 'cats', brand: '1ST CHOICE', name: ' Peau et Pelage Santé Pour Chat Adulte Flocons de Saumon', foodType: 'Croquettes', ingredients: 'Saumon, Gomme de guar, Huile de thon' },
-            { id: 6, animal: 'cats', brand: 'Aatu', name: 'Free Run Chicken (Poulet)', foodType: 'Croquettes', ingredients: 'Poulet, Patate douce, Pois chiches' },
+            { _id: 1, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance miniature', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
+            { _id: 2, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance moyennes', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
+            { _id: 3, animal: 'dogs', brand: 'Aatu', name: 'Aatu', foodType: 'Croquettes', ingredients: 'Saumon, Hareng déshydraté, Patate douce' },
+            { _id: 4, animal: 'cats', brand: '1ST CHOICE', name: 'Contrôle Du Poids Adulte', foodType: 'Croquettes', ingredients: 'Poulet frais, Farine de poulet, Riz' },
+            { _id: 5, animal: 'cats', brand: '1ST CHOICE', name: ' Peau et Pelage Santé Pour Chat Adulte Flocons de Saumon', foodType: 'Croquettes', ingredients: 'Saumon, Gomme de guar, Huile de thon' },
+            { _id: 6, animal: 'cats', brand: 'Aatu', name: 'Free Run Chicken (Poulet)', foodType: 'Croquettes', ingredients: 'Poulet, Patate douce, Pois chiches' },
         ]
 
         return <Petfood> find(list, {'id': id})

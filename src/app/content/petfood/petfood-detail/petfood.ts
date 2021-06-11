@@ -1,5 +1,5 @@
 export interface Petfood {
-    id: number,
+    _id: number,
     animal: string,
     brand: string,
     name: string,

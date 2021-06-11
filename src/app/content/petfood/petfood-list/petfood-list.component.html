@@ -14,13 +14,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let food of petfoodList">
-            <td>{{ food.id }}</td>
+            <td>{{ food._id }}</td>
             <td>{{ food.animal }}</td>
             <td>{{ food.brand }}</td>
             <td>{{ food.name }}</td>
             <td>{{ food.foodType }}</td>
             <td>{{ food.ingredients }}</td>
-            <td><a class="btn btn-primary" [routerLink]="getPetfoodUrl(food.id)">GO</a></td>
+            <td><a class="btn btn-primary" [routerLink]="getPetfoodUrl(food._id)">GO</a></td>
         </tr>
     </tbody>
 </table>
