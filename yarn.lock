@@ -7124,6 +7124,19 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"ngx-toastr@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "ngx-toastr@npm:14.0.0"
+  dependencies:
+    tslib: ^2.1.0
+  peerDependencies:
+    "@angular/common": ">=12.0.0-0"
+    "@angular/core": ">=12.0.0-0"
+    "@angular/platform-browser": ">=12.0.0-0"
+  checksum: 4e009367a2ef96962199c23096dc407fbf77e4dab1dbda2c8861b734a3e06419a0864831e1b06beccdfc0ded1b4331c27ab415ccfb3dfcb3000b859c6260f345
+  languageName: node
+  linkType: hard
+
 "nice-try@npm:^1.0.4":
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5"
@@ -7823,6 +7836,7 @@ fsevents@~2.3.1:
     karma-jasmine: ~4.0.0
     karma-jasmine-html-reporter: ^1.5.0
     lodash: ^4.17.21
+    ngx-toastr: ^14.0.0
     rimraf: ^3.0.2
     rxjs: ~6.6.0
     tslib: ^2.1.0
