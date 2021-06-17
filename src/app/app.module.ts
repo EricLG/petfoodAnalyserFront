@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component'
 import { ContentModule } from './content'
-import { FooterComponent } from './footer'
-import { NavComponent } from './nav'
+import { FooterComponent } from './layout/footer'
+import { NavComponent } from './layout/nav'
 
 @NgModule({
     declarations: [
