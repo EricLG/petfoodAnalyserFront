@@ -5,7 +5,7 @@
         <tr>
             <th>animal</th>
             <th>brand</th>
-            <th>name</th>
+            <th>Reférence</th>
             <th>foodType</th>
             <th>ingredients</th>
             <th>Détail</th>
@@ -15,7 +15,7 @@
         <tr *ngFor="let food of petfoodList">
             <td>{{ food.animal }}</td>
             <td>{{ food.brand }}</td>
-            <td>{{ food.name }}</td>
+            <td>{{ food.reference }}</td>
             <td>{{ food.foodType }}</td>
             <td>{{ food.ingredients }}</td>
             <td><a class="btn btn-primary" [routerLink]="getPetfoodUrl(food._id)">GO</a></td>
