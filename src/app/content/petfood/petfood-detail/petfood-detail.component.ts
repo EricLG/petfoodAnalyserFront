@@ -1,8 +1,9 @@
 import { ActivatedRoute, Params } from '@angular/router'
 import { Component, OnInit } from '@angular/core'
-import { Petfood } from './petfood'
+import { ToastrService } from 'ngx-toastr'
 
-import { find } from 'lodash'
+import { Petfood } from './petfood'
+import { PetfoodService } from 'src/app/services/petfoodService'
 
 @Component({
     selector: 'app-petfood-detail',
@@ -11,30 +12,27 @@ import { find } from 'lodash'
 })
 export class PetfoodDetailComponent implements OnInit {
 
-    id = ''
     petfood: Petfood|undefined = undefined
 
     constructor(
         private route: ActivatedRoute,
+        private petfoodService: PetfoodService,
+        private toastrService: ToastrService
     ) {}
 
     ngOnInit(): void {
-        this.route.queryParams.subscribe((params: Params) => {
-            this.id = params['id']
+        this.route.params.subscribe((params: Params) => {
+            this.getDetail(params['id'])
         })
     }
 
-    getDetail(id: string): Petfood|undefined {
-        const list: Petfood[] = [
-            { _id: 1, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance miniature', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
-            { _id: 2, animal: 'dogs', brand: '1ST CHOICE', name: 'Croissance moyennes', foodType: 'Croquettes', ingredients: 'Poulet déshydraté, Amande d’avoine, Riz de brasserie' },
-            { _id: 3, animal: 'dogs', brand: 'Aatu', name: 'Aatu', foodType: 'Croquettes', ingredients: 'Saumon, Hareng déshydraté, Patate douce' },
-            { _id: 4, animal: 'cats', brand: '1ST CHOICE', name: 'Contrôle Du Poids Adulte', foodType: 'Croquettes', ingredients: 'Poulet frais, Farine de poulet, Riz' },
-            { _id: 5, animal: 'cats', brand: '1ST CHOICE', name: ' Peau et Pelage Santé Pour Chat Adulte Flocons de Saumon', foodType: 'Croquettes', ingredients: 'Saumon, Gomme de guar, Huile de thon' },
-            { _id: 6, animal: 'cats', brand: 'Aatu', name: 'Free Run Chicken (Poulet)', foodType: 'Croquettes', ingredients: 'Poulet, Patate douce, Pois chiches' },
-        ]
-
-        return <Petfood> find(list, {'id': id})
+    getDetail(id: string): void {
+        this.petfoodService.getPetfoodDetail(id).subscribe((petfood: Petfood) => {
+            this.petfood = petfood
+        }, error => {
+            this.toastrService.error('Une erreur s\'est produite.')
+            console.error(error)
+        })
     }
 
 }

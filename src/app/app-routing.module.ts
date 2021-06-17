@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'cats', component: CatsComponent },
     { path: 'dogs', component: DogsComponent },
-    { path: 'petfood/:id', component: PetfoodDetailComponent },
+    { path: 'petfood/:id/detail', component: PetfoodDetailComponent },
 ]
 
 @NgModule({

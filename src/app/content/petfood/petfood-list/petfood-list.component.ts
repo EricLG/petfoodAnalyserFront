@@ -25,6 +25,6 @@ export class PetfoodListComponent implements OnInit {
     }
 
     getPetfoodUrl(id: number): string[] {
-        return ['/petfood', id.toString()]
+        return ['/petfood', id.toString(), 'detail']
     }
 }

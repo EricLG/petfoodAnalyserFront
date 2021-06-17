@@ -1,1 +1,14 @@
 <p>petfood-detail works!</p>
+
+<ul *ngIf="petfood">
+    <li>{{ petfood._id }}</li>
+    <li>{{ petfood.animal }}</li>
+    <li>{{ petfood.brand }}</li>
+    <li>{{ petfood.name }}</li>
+    <li>{{ petfood.foodType }}</li>
+    <li>{{ petfood.ingredients }}</li>
+</ul>
+
+<div *ngIf="!petfood">
+    Loading
+</div>
