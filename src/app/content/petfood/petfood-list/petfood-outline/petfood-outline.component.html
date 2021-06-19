@@ -1,55 +1,105 @@
-<div *ngIf="petfood" class="row">
-    <div class="col-md-2">
-        <img src="..." class="img-fluid border" alt="Test" width="500" height="600">
-    </div>
-    <div class="col-md-8">
-        <div class="row">
-            <p class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></p>
+<div class="card">
+    <div *ngIf="petfood" class="card-body row">
+        <div class="col-md-2 col-sm-12">
+            <img src="{{getImagePath()}}" class="img-fluid border" alt="Test">
         </div>
-        <div class="row">
-            <p class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference }}</a></p>
+        <div class="col-md-8 col-sm-12">
+            <div class="row">
+                <p class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></p>
+            </div>
+            <div class="row">
+                <p class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference }}</a></p>
+            </div>
+            <div class="row d-none d-md-block">
+                <table class="table table-bordered table-sm text-center font-weight-bold">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Protéines</th>
+                            <th>Lipides</th>
+                            <th>Fibres</th>
+                            <th>Cendres</th>
+                            <th>Humidité</th>
+                            <th>Glucides</th>
+                            <th>Calcium</th>
+                            <th>P</th>
+                            <th>Ca/P</th>
+                            <th>O6/O3</th>
+                            <th>EM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>40</td>
+                            <td>21</td>
+                            <td>2,5</td>
+                            <td>7,5</td>
+                            <td>8</td>
+                            <td>21,00</td>
+                            <td>1,3</td>
+                            <td>1,2</td>
+                            <td>1,08</td>
+                            <td>10</td>
+                            <td>417</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row d-block d-md-none">
+                <table class="table table-bordered table-sm text-center font-weight-bold">
+                    <tbody>
+                        <tr>
+                            <td>Protéines</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Lipides</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Fibres</td>
+                            <td>2,5</td>
+                        </tr>
+                        <tr>
+                            <td>Cendres</td>
+                            <td>7,5</td>
+                        </tr>
+                        <tr>
+                            <td>Humidité</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Glucides</td>
+                            <td>21,00</td>
+                        </tr>
+                        <tr>
+                            <td>Calcium</td>
+                            <td>1,3</td>
+                        </tr>
+                        <tr>
+                            <td>P</td>
+                            <td>1,2</td>
+                        </tr>
+                        <tr>
+                            <td>Ca/P</td>
+                            <td>1,08</td>
+                        </tr>
+                        <tr>
+                            <td>O6/O3</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>EM</td>
+                            <td>417</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <p><span class="font-weight-bold">Source d'amidon</span> : pois, pomme de terre, riz.</p>
+            </div>
         </div>
-        <div class="row">
-            <table class="table table-bordered table-sm text-center font-weight-bold">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Protéines</th>
-                        <th>Lipides</th>
-                        <th>Fibres</th>
-                        <th>Cendres</th>
-                        <th>Humidité</th>
-                        <th>Glucides</th>
-                        <th>Calcium</th>
-                        <th>Ph</th>
-                        <th>Ca/P</th>
-                        <th>O6/O3</th>
-                        <th>EM</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>40</td>
-                        <td>21</td>
-                        <td>2,5</td>
-                        <td>7,5</td>
-                        <td>8</td>
-                        <td>21,00</td>
-                        <td>1,3</td>
-                        <td>1,2</td>
-                        <td>1,08</td>
-                        <td>10</td>
-                        <td>417</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><span class="font-weight-bold">Source d'amidon</span> : pois, pomme de terre, riz.</p>
+        <div class="col-md-2 col-sm-12">
+            RPC/RPP
         </div>
     </div>
-    <div class="col-md-2">
-        RPC/RPP
-    </div>
-
-
 </div>
-
-
