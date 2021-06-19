@@ -24,7 +24,4 @@ export class PetfoodListComponent implements OnInit {
         this.petfoodService.getPetfoodPage(animal).subscribe((petfood: Petfood[]) => this.petfoodList = petfood)
     }
 
-    getPetfoodUrl(id: number): string[] {
-        return ['/petfood', id.toString(), 'detail']
-    }
 }

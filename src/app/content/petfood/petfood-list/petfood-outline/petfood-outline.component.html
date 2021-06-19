@@ -1,0 +1,55 @@
+<div *ngIf="petfood" class="row">
+    <div class="col-md-2">
+        <img src="..." class="img-fluid border" alt="Test" width="500" height="600">
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <p class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></p>
+        </div>
+        <div class="row">
+            <p class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference }}</a></p>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-sm text-center font-weight-bold">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Protéines</th>
+                        <th>Lipides</th>
+                        <th>Fibres</th>
+                        <th>Cendres</th>
+                        <th>Humidité</th>
+                        <th>Glucides</th>
+                        <th>Calcium</th>
+                        <th>Ph</th>
+                        <th>Ca/P</th>
+                        <th>O6/O3</th>
+                        <th>EM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>40</td>
+                        <td>21</td>
+                        <td>2,5</td>
+                        <td>7,5</td>
+                        <td>8</td>
+                        <td>21,00</td>
+                        <td>1,3</td>
+                        <td>1,2</td>
+                        <td>1,08</td>
+                        <td>10</td>
+                        <td>417</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><span class="font-weight-bold">Source d'amidon</span> : pois, pomme de terre, riz.</p>
+        </div>
+    </div>
+    <div class="col-md-2">
+        RPC/RPP
+    </div>
+
+
+</div>
+
+
