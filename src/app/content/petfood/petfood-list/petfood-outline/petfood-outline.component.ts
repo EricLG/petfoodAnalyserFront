@@ -13,6 +13,8 @@ export class PetfoodOutlineComponent {
     @Input() petfood: Petfood = {
         _id: 0
     }
+    rpp = 30
+    rpc = 40
 
     getPetfoodUrl(id: number): string[] {
         return ['/petfood', id.toString(), 'detail']
