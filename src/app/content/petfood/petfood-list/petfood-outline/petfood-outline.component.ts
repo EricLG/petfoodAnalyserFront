@@ -10,8 +10,9 @@ import { Petfood } from '../../petfood-detail'
 })
 export class PetfoodOutlineComponent {
 
-    @Input() petfood: Petfood | undefined
-
+    @Input() petfood: Petfood = {
+        _id: 0
+    }
 
     getPetfoodUrl(id: number): string[] {
         return ['/petfood', id.toString(), 'detail']

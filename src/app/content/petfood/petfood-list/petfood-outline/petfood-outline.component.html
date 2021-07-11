@@ -1,36 +1,38 @@
 <div class="card">
-    <div *ngIf="petfood" class="card-body row ">
-        <div class="col-md-2 col-sm-12 ">
-            <img src="{{getImagePath()}}" class="max-height-170 mx-auto d-block" alt="Test">
+    <div class="card-body pl-2 d-flex flex-md-row flex-sm-column flex-column justify-content-around">
+        <div class="d-flex justify-content-center">
+            <img src="{{getImagePath()}}" class="max-height-170 d-block" alt="Test">
         </div>
-        <div class="col-md-8 col-sm-12">
-            <div class="row">
-                <p class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></p>
+        <div class="d-flex flex-column">
+            <div class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></div>
+            <div class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference}}</a></div>
+            <div class="d-none d-md-block table-responsive">
+                <table class="table table-bordered table-sm align-middle text-center font-weight-bold font-size-14">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="width-90">Protéines</th>
+                            <th class="width-90">Lipides</th>
+                            <th class="width-90">Fibres</th>
+                            <th class="width-90">Cendres</th>
+                            <th class="width-90">Humidité</th>
+                            <th class="width-90">Glucides</th>
+                            <th class="width-90">Calcium</th>
+                            <th class="width-90">Phosphore</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>40</td>
+                        <td>21</td>
+                        <td>2,5</td>
+                        <td>7,5</td>
+                        <td>8</td>
+                        <td>21,00</td>
+                        <td>1,3</td>
+                        <td>1,2</td>
+                    </tbody>
+                </table>
             </div>
-            <div class="row">
-                <p class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference }}</a></p>
-            </div>
-            <div class="row d-none d-md-table bg-light-grey text-center font-weight-bold font-size-14">
-                <div class="d-table-cell border align-middle width-90">Protéines</div>
-                <div class="d-table-cell border align-middle width-90">Lipides</div>
-                <div class="d-table-cell border align-middle width-90">Fibres</div>
-                <div class="d-table-cell border align-middle width-90">Cendres</div>
-                <div class="d-table-cell border align-middle width-90">Humidité</div>
-                <div class="d-table-cell border align-middle width-90">Glucides</div>
-                <div class="d-table-cell border align-middle width-90">Calcium</div>
-                <div class="d-table-cell border align-middle width-90">Phosphore</div>
-            </div>
-            <div class="row d-none d-md-table text-center font-weight-bold font-size-14">
-                <div class="d-table-cell border align-middle width-90">40</div>
-                <div class="d-table-cell border align-middle width-90">21</div>
-                <div class="d-table-cell border align-middle width-90">2,5</div>
-                <div class="d-table-cell border align-middle width-90">7,5</div>
-                <div class="d-table-cell border align-middle width-90">8</div>
-                <div class="d-table-cell border align-middle width-90">21,00</div>
-                <div class="d-table-cell border align-middle width-90">1,3</div>
-                <div class="d-table-cell border align-middle width-90">1,2</div>
-            </div>
-            <div class="row d-block d-md-none">
+            <div class="d-block d-md-none">
                 <table class="table table-bordered table-sm text-center font-weight-bold font-size-14">
                     <tbody>
                         <tr>
@@ -80,11 +82,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="mt-3 row">
+            <div class="">
                 <p><span class="font-weight-bold">Source d'amidon</span> : pois, pomme de terre, riz.</p>
             </div>
         </div>
-        <div class="col-md-2 col-sm-12">
+        <div class="d-flex justify-content-center">
             RPC/RPP
         </div>
     </div>
