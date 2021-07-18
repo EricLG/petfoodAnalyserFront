@@ -30,4 +30,8 @@ export class PetfoodOutlineComponent {
 
         return 'assets/' + first(shuffle(samples))
     }
+
+    getLabelForPotentialMissingInfo(value: number|undefined): string {
+        return value ? value.toString() : 'N/A'
+    }
 }

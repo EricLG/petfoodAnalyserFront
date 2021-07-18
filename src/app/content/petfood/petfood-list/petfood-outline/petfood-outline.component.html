@@ -15,20 +15,22 @@
                             <th class="width-90">Fibres</th>
                             <th class="width-90">Cendres</th>
                             <th class="width-90">Humidité</th>
-                            <th class="width-90">Glucides</th>
+                            <th class="width-90">ENA</th>
                             <th class="width-90">Calcium</th>
                             <th class="width-90">Phosphore</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <td>{{ petfood.proteins }}</td>
-                        <td>{{ petfood.lipids }}</td>
-                        <td>{{ petfood?.fibers }}</td>
-                        <td>{{ petfood?.ashes }}</td>
-                        <td>{{ petfood?.moisture }}</td>
-                        <td>xx</td>
-                        <td>{{ petfood?.calcium }}</td>
-                        <td>{{ petfood?.phosphorus }}</td>
+                        <tr>
+                            <td>{{ petfood.proteins }}</td>
+                            <td>{{ petfood.lipids }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.fibers) }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.ashes) }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.moisture) }}</td>
+                            <td>{{ petfood.getNfe() }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.calcium) }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.phosphorus) }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -45,39 +47,27 @@
                         </tr>
                         <tr>
                             <td>Fibres</td>
-                            <td>{{ petfood?.fibers }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.fibers) }}</td>
                         </tr>
                         <tr>
                             <td>Cendres</td>
-                            <td>{{ petfood?.ashes }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.ashes) }}</td>
                         </tr>
                         <tr>
                             <td>Humidité</td>
-                            <td>{{ petfood?.moisture }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.moisture) }}</td>
                         </tr>
                         <tr>
-                            <td>Glucides</td>
-                            <td>21,00</td>
+                            <td>ENA</td>
+                            <td>{{ petfood.getNfe() }}</td>
                         </tr>
                         <tr>
                             <td>Calcium</td>
-                            <td>{{ petfood?.calcium }}</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.calcium) }}</td>
                         </tr>
                         <tr>
                             <td>P</td>
-                            <td>{{ petfood?.phosphorus }}</td>
-                        </tr>
-                        <tr>
-                            <td>Ca/P</td>
-                            <td>1,08</td>
-                        </tr>
-                        <tr>
-                            <td>O6/O3</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>EM</td>
-                            <td>417</td>
+                            <td>{{ getLabelForPotentialMissingInfo(petfood.phosphorus) }}</td>
                         </tr>
                     </tbody>
                 </table>

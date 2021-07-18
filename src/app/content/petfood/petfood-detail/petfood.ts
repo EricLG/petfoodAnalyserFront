@@ -1,3 +1,5 @@
+import { round } from 'lodash'
+
 export interface PetfoodInterface {
     _id: number
     animal: string
@@ -29,6 +31,8 @@ export interface PetfoodInterface {
     updatedAt?: Date
 }
 
+const CARBONHYDRATES_DEFAULT = 0.1
+
 export class Petfood implements PetfoodInterface {
     _id: number
     animal: string
@@ -59,7 +63,6 @@ export class Petfood implements PetfoodInterface {
     createdAt?: Date
     updatedAt?: Date
 
-    CARBON_HYDRATE_DEFAULT = 0.1
     constructor(petfoodInterace: PetfoodInterface) {
         this._id = petfoodInterace._id
         this.animal = petfoodInterace.animal
@@ -116,15 +119,29 @@ export class Petfood implements PetfoodInterface {
         return this.moisture ? this.moisture : this.estimatedIngredients[this.animal][this.dryOrWet]['moisture']
     }
 
-    // Calcul des glucides
-    carbonHydrates(): number {
-        let value = 0.1
+    // Nitrogen Free Extract (NFE) calcul - ENA : Extractif non azoté
+    getNfe(): number {
+        const nfe = 100 - (this.proteins + this.lipids + this.getFibers() + this.getAshes() + this.getMoisture())
 
-        if (this.proteins && this.lipids) {
-            value = 100 - (this.proteins + this.lipids + this.getFibers() + this.getAshes() + this.getMoisture())
+        return (nfe > 0) ? nfe : CARBONHYDRATES_DEFAULT
+    }
+
+    getRatioCaP(): number| undefined {
+        let ratio
+
+        if (this.calcium && this.phosphorus) {
+            ratio = round(this.calcium / this.phosphorus, 1)
         }
+        return ratio
+    }
 
-        return value
+    getRatioO6O3(): number|undefined {
+        let ratio
+
+        if (this.omega3 && this.omega6) {
+            ratio = round(this.omega6 / this.omega3, 1)
+        }
+        return ratio
     }
 
     // Rapport protéines sur calories
