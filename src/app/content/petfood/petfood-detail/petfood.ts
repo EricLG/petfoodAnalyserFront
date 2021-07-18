@@ -8,8 +8,8 @@ export interface PetfoodInterface {
     reference?: string
     packaging?: string
     bio?: string
-    proteins?: number
-    lipids?: number
+    proteins: number
+    lipids: number
     fibers?: number
     ashes?: number // Cendres
     moisture?: number // Humidité
@@ -39,8 +39,8 @@ export class Petfood implements PetfoodInterface {
     reference?: string
     packaging?: string
     bio?: string
-    proteins?: number
-    lipids?: number
+    proteins: number
+    lipids: number
     fibers?: number
     ashes?: number
     moisture?: number
