@@ -1,7 +1,8 @@
-export interface Petfood {
+export interface PetfoodInterface {
     _id: number
-    animal?: string
-    foodType?: string
+    animal: string
+    foodType: string
+    dryOrWet: string
     source?: string
     brand?: string
     reference?: string
@@ -26,4 +27,117 @@ export interface Petfood {
     brandCountryOrigin?: string
     createdAt?: Date
     updatedAt?: Date
+}
+
+export class Petfood implements PetfoodInterface {
+    _id: number
+    animal: string
+    foodType: string
+    dryOrWet: string
+    source?: string
+    brand?: string
+    reference?: string
+    packaging?: string
+    bio?: string
+    proteins?: number
+    lipids?: number
+    fibers?: number
+    ashes?: number
+    moisture?: number
+    calcium?: number
+    phosphorus?: number
+    omega6?: number
+    omega3?: number
+    starchSource?: string
+    animalProteinSource?: string
+    vegetalProteinSource?: string
+    monoprotein?: boolean
+    ingredients?: string
+    nutritionalAdditives?: string
+    comment?: string
+    brandCountryOrigin?: string
+    createdAt?: Date
+    updatedAt?: Date
+
+    CARBON_HYDRATE_DEFAULT = 0.1
+    constructor(petfoodInterace: PetfoodInterface) {
+        this._id = petfoodInterace._id
+        this.animal = petfoodInterace.animal
+        this.foodType = petfoodInterace.foodType
+        this.dryOrWet = petfoodInterace.dryOrWet
+        this.source = petfoodInterace.source
+        this.brand = petfoodInterace.brand
+        this.reference = petfoodInterace.reference
+        this.packaging = petfoodInterace.packaging
+        this.bio = petfoodInterace.bio
+        this.proteins = petfoodInterace.proteins
+        this.lipids = petfoodInterace.lipids
+        this.fibers = petfoodInterace.fibers
+        this.ashes = petfoodInterace.ashes
+        this.moisture = petfoodInterace.moisture
+        this.calcium = petfoodInterace.calcium
+        this.phosphorus = petfoodInterace.phosphorus
+        this.omega6 = petfoodInterace.omega6
+        this.omega3 = petfoodInterace.omega3
+        this.starchSource = petfoodInterace.starchSource
+        this.animalProteinSource = petfoodInterace.animalProteinSource
+        this.vegetalProteinSource = petfoodInterace.vegetalProteinSource
+        this.monoprotein = petfoodInterace.monoprotein
+        this.ingredients = petfoodInterace.ingredients
+        this.nutritionalAdditives = petfoodInterace.nutritionalAdditives
+        this.comment = petfoodInterace.comment
+        this.brandCountryOrigin = petfoodInterace.brandCountryOrigin
+        this.createdAt = petfoodInterace.createdAt
+        this.updatedAt = petfoodInterace.updatedAt
+    }
+
+    estimatedIngredients: {
+        [animal: string]: {
+            [dryOrWet: string]: { fibers: number, ashes: number, moisture: number }
+        }
+    } = {
+        cats: {
+            dry: { fibers: 3, ashes: 8, moisture: 8 },
+            wet: { fibers: 0.5, ashes: 2.5, moisture: 79 },
+        },
+        dogs: {
+            dry: { fibers: 3, ashes: 8, moisture: 10 },
+            wet: { fibers: 0.5, ashes: 8, moisture: 77 },
+        }
+    }
+
+    getFibers(): number {
+        return this.fibers ? this.fibers : this.estimatedIngredients[this.animal][this.dryOrWet]['fibers']
+    }
+    getAshes(): number {
+        return this.ashes ? this.ashes : this.estimatedIngredients[this.animal][this.dryOrWet]['ashes']
+    }
+    getMoisture(): number {
+        return this.moisture ? this.moisture : this.estimatedIngredients[this.animal][this.dryOrWet]['moisture']
+    }
+
+    // Calcul des glucides
+    carbonHydrates(): number {
+        let value = 0.1
+
+        if (this.proteins && this.lipids) {
+            value = 100 - (this.proteins + this.lipids + this.getFibers() + this.getAshes() + this.getMoisture())
+        }
+
+        return value
+    }
+
+    // Rapport protéines sur calories
+    rpc(): number {
+        return 0
+    }
+
+    // Rapport protéines sur phosphore
+    rpp(): number|undefined {
+        if (this.proteins && this.phosphorus) {
+            return Math.floor(this.proteins/this.phosphorus)
+        } else {
+            return undefined
+        }
+    }
 }
