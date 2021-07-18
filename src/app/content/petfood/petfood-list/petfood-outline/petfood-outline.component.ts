@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { first, shuffle } from 'lodash'
 
-import { Petfood } from '../../petfood-detail'
+import { Petfood } from '../../petfood-detail/petfood'
 
 @Component({
     selector: 'app-petfood-outline',
@@ -10,10 +10,10 @@ import { Petfood } from '../../petfood-detail'
 })
 export class PetfoodOutlineComponent {
 
-    @Input() petfood: Petfood = {
-        _id: 0
-    }
-    rpp = 30
+    @Input() petfood: Petfood = new Petfood({
+        _id: 0, animal: '', foodType: '', dryOrWet: ''
+    })
+
     rpc = 40
 
     getPetfoodUrl(id: number): string[] {

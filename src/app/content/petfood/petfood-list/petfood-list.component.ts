@@ -21,7 +21,9 @@ export class PetfoodListComponent implements OnInit {
     }
 
     getPetfoodList(animal: string): void {
-        this.petfoodService.getPetfoodPage(animal).subscribe((petfood: Petfood[]) => this.petfoodList = petfood)
+        this.petfoodService.getPetfoodPage(animal).subscribe((petfoodArray: Petfood[]) => {
+            this.petfoodList = petfoodArray.map((petfood) => new Petfood(petfood))
+        })
     }
 
 }

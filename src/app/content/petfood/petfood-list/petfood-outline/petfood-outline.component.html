@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="petfood" class="card">
     <div class="card-body pl-2 d-flex flex-md-row flex-sm-column flex-column justify-content-around">
         <div class="d-flex justify-content-center">
             <img src="{{getImagePath()}}" class="max-height-170 d-block" alt="Test">
@@ -21,14 +21,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td>40</td>
-                        <td>21</td>
-                        <td>2,5</td>
-                        <td>7,5</td>
-                        <td>8</td>
-                        <td>21,00</td>
-                        <td>1,3</td>
-                        <td>1,2</td>
+                        <td>{{ petfood?.proteins }}</td>
+                        <td>{{ petfood?.lipids }}</td>
+                        <td>{{ petfood?.fibers }}</td>
+                        <td>{{ petfood?.ashes }}</td>
+                        <td>{{ petfood?.moisture }}</td>
+                        <td>xx</td>
+                        <td>{{ petfood?.calcium }}</td>
+                        <td>{{ petfood?.phosphorus }}</td>
                     </tbody>
                 </table>
             </div>
@@ -37,23 +37,23 @@
                     <tbody>
                         <tr>
                             <td>Protéines</td>
-                            <td>40</td>
+                            <td>{{ petfood?.proteins }}</td>
                         </tr>
                         <tr>
                             <td>Lipides</td>
-                            <td>21</td>
+                            <td>{{ petfood?.lipids }}</td>
                         </tr>
                         <tr>
                             <td>Fibres</td>
-                            <td>2,5</td>
+                            <td>{{ petfood?.fibers }}</td>
                         </tr>
                         <tr>
                             <td>Cendres</td>
-                            <td>7,5</td>
+                            <td>{{ petfood?.ashes }}</td>
                         </tr>
                         <tr>
                             <td>Humidité</td>
-                            <td>8</td>
+                            <td>{{ petfood?.moisture }}</td>
                         </tr>
                         <tr>
                             <td>Glucides</td>
@@ -61,11 +61,11 @@
                         </tr>
                         <tr>
                             <td>Calcium</td>
-                            <td>1,3</td>
+                            <td>{{ petfood?.calcium }}</td>
                         </tr>
                         <tr>
                             <td>P</td>
-                            <td>1,2</td>
+                            <td>{{ petfood?.phosphorus }}</td>
                         </tr>
                         <tr>
                             <td>Ca/P</td>
@@ -88,7 +88,7 @@
         </div>
         <div class="d-flex flex-column justify-content-center">
             <app-gauge label="RPC" [cursor]="rpc"></app-gauge>
-            <app-gauge label="RPP" [cursor]="rpp"></app-gauge>
+            <app-gauge label="RPP" [cursor]="petfood?.rpp()"></app-gauge>
         </div>
     </div>
 </div>
