@@ -7,7 +7,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 })
 export class GaugeComponent implements AfterViewInit {
 
-    @Input() cursor = 0
+    @Input() cursor: number|undefined
     @Input() label = ''
 
     @ViewChild('canvasElementRef', {static: false})
@@ -24,11 +24,17 @@ export class GaugeComponent implements AfterViewInit {
             const ctx = this.canvasElementRef.nativeElement.getContext('2d')
 
             if (ctx) {
-                this.drawGauge(ctx)
-                this.drawCursor(ctx, this.cursor)
+                if (this.cursor) {
+                    this.drawGauge(ctx)
+                    this.drawCursor(ctx, this.cursor)
+                }
                 ctx.stroke()
             }
         }
+    }
+
+    getCursor(): string {
+        return this.cursor ? `${this.cursor}` : 'N/A'
     }
 
     drawGauge(ctx: CanvasRenderingContext2D): void {

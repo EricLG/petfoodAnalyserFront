@@ -1,4 +1,4 @@
 <div class="d-flex flex-row">
-    <div>{{ label }} : {{ cursor }} </div>
+    <div>{{ label }} : <span [class.text-danger]="cursor === undefined">{{ getCursor() }}</span> </div>
     <div class="pl-1 "><canvas #canvasElementRef width="{{ canvasW }}" height="{{ canvasH }}"></canvas></div>
 </div>
