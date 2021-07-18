@@ -27,8 +27,8 @@ export interface PetfoodInterface {
     nutritionalAdditives?: string // Additifs additionnels
     comment?: string
     brandCountryOrigin?: string
-    createdAt?: Date
-    updatedAt?: Date
+    createdAt: Date
+    updatedAt: Date
 }
 
 const CARBONHYDRATES_DEFAULT = 0.1
@@ -60,8 +60,8 @@ export class Petfood implements PetfoodInterface {
     nutritionalAdditives?: string
     comment?: string
     brandCountryOrigin?: string
-    createdAt?: Date
-    updatedAt?: Date
+    createdAt: Date
+    updatedAt: Date
 
     constructor(petfoodInterace: PetfoodInterface) {
         this._id = petfoodInterace._id
