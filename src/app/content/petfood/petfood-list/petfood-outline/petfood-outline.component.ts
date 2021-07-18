@@ -10,9 +10,7 @@ import { Petfood } from '../../petfood-detail/petfood'
 })
 export class PetfoodOutlineComponent {
 
-    @Input() petfood: Petfood = new Petfood({
-        _id: 0, animal: '', foodType: '', dryOrWet: '', proteins: 0, lipids: 0
-    })
+    @Input() petfood: Petfood|undefined
 
     rpc = 40
 
