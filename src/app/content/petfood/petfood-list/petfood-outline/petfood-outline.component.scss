@@ -2,15 +2,53 @@
   background: #e9ecef;
 }
 
+.p-around-table {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.table-custom th, .table-custom td {
+  // padding: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  width: 70px;
+}
+
+.thead-grey th {
+  color: #fff;
+  background-color: #808285;
+  border-color: #808285;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #000 !important;
+}
 .max-height-170 {
   max-height: 170px;
 }
 
-.width-90 {
-  width: 90px;
-  height: 30px;
+
+.font-size-21 {
+  font-size: 21px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.font-size-16 {
+  font-size: 16px;
 }
 
 .font-size-14 {
   font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.verdana {
+  font-family: "Verdana, Geneva, Tahoma, sans-serif";
 }

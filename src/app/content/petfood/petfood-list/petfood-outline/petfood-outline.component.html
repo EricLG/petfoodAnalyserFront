@@ -1,26 +1,26 @@
 <div *ngIf="petfood" class="card">
-    <div class="card-body pl-2 d-flex flex-md-row flex-sm-column flex-column justify-content-around">
-        <div class="d-flex justify-content-center">
+    <div class="card-body pl-2 d-flex flex-md-row flex-sm-column flex-column justify-content-start">
+        <div class="d-flex justify-content-center mx-2">
             <img src="{{getImagePath()}}" class="max-height-170 d-block" alt="Test">
         </div>
-        <div class="d-flex flex-column">
-            <div class="h4"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></div>
-            <div class="h5"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference}}</a></div>
-            <div class="d-none d-md-block table-responsive">
-                <table class="table table-bordered table-sm align-middle text-center font-weight-bold font-size-14">
-                    <thead class="thead-light">
+        <div class="d-flex flex-column mx-3">
+            <div class="h4 font-weight-bold font-size-21 mb-0 verdana"><a class="text-primary" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.brand }}</a></div>
+            <div class="h5 font-weight-bold font-size-21 mb-0"><a class="text-dark" [routerLink]="getPetfoodUrl(petfood._id)">{{ petfood?.reference}}</a></div>
+            <div class="d-none d-md-block table-responsive p-around-table">
+                <table class="table-bordered table-custom align-middle text-center font-weight-bold">
+                    <thead class="thead-grey font-size-12">
                         <tr>
-                            <th class="width-90">Protéines</th>
-                            <th class="width-90">Lipides</th>
-                            <th class="width-90">Fibres</th>
-                            <th class="width-90">Cendres</th>
-                            <th class="width-90">Humidité</th>
-                            <th class="width-90">ENA</th>
-                            <th class="width-90">Calcium</th>
-                            <th class="width-90">Phosphore</th>
+                            <th>Protéines</th>
+                            <th>Lipides</th>
+                            <th>Fibres</th>
+                            <th>Cendres</th>
+                            <th>Humidité</th>
+                            <th>ENA</th>
+                            <th>Calcium</th>
+                            <th>Phosphore</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="font-size-16">
                         <tr>
                             <td>{{ petfood.proteins }}</td>
                             <td>{{ petfood.lipids }}</td>
@@ -73,14 +73,16 @@
                 </table>
             </div>
             <div class="">
-                <p><span class="font-weight-bold">Source d'amidon</span> : pois, pomme de terre, riz.</p>
+                <p><span class="font-weight-bold font-size-18">Source d'amidon</span> : pois, pomme de terre, riz.</p>
             </div>
         </div>
-        <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column ml-auto justify-content-between">
             <div class="text-right"><span class="font-weight-bold font-size-18">MàJ : {{ petfood.updatedAt | date:'dd/MM/yyyy' }}</span></div>
-            <br>
-            <app-gauge label="RPC" [cursor]="rpc"></app-gauge>
-            <app-gauge label="RPP" [cursor]="petfood?.rpp()"></app-gauge>
+            <div>
+                <app-gauge label="RPC" [cursor]="rpc"></app-gauge>
+                <app-gauge label="RPP" [cursor]="petfood?.rpp()"></app-gauge>
+            </div>
+            <div>&nbsp;</div>
         </div>
     </div>
 </div>
