@@ -1,4 +1,10 @@
 <div class="d-flex flex-row">
-    <div>{{ label }} : <span [class.text-danger]="cursor === undefined">{{ getCursor() }}</span> </div>
-    <div class="pl-1 "><canvas #canvasElementRef width="{{ canvasW }}" height="{{ canvasH }}"></canvas></div>
+    <div>
+        <span class="font-size-18">{{ label }}</span> :
+        <span class="font-size-18" [class.text-danger]="cursor === undefined">{{ getCursor() }}</span>
+    </div>
+    <div class="pl-3 flex-fill">
+        <canvas *ngIf="cursor" #canvasElementRef width="{{ canvasW }}" height="{{ canvasH }}"></canvas>
+        <div *ngIf="!cursor" class="text-danger text-center"><span class="font-size-18 font-weight-bold">N/A</span></div>
+    </div>
 </div>

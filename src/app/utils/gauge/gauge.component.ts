@@ -15,9 +15,9 @@ export class GaugeComponent implements AfterViewInit {
     canvasElementRef: ElementRef<HTMLCanvasElement> | null = null;
 
     // Canvas and gauge size
-    canvasW = 150
+    canvasW = 130
     canvasH = 24
-    gaugeW = 100
+    gaugeW = 120
     gaugeH = 15
 
     ngAfterViewInit(): void {
@@ -44,7 +44,7 @@ export class GaugeComponent implements AfterViewInit {
                 return `${this.cursor}`
             }
         } else {
-            return 'N/A'
+            return ''
         }
     }
 
