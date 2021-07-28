@@ -79,7 +79,7 @@
         <div class="d-flex flex-column justify-content-between">
             <div class="text-right"><span class="font-size-18">MàJ : {{ petfood.updatedAt | date:'dd/MM/yyyy' }}</span></div>
             <div class="mt-4">
-                <app-gauge label="RPC" [cursor]="65" [animal]="petfood.animal"></app-gauge>
+                <app-gauge label="RPC" [cursor]="petfood?.rpc()" [animal]="petfood.animal"></app-gauge>
                 <br>
                 <app-gauge label="RPP" [cursor]="petfood?.rpp()" [animal]="petfood.animal"></app-gauge>
             </div>

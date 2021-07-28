@@ -31,7 +31,7 @@ export interface PetfoodInterface {
     updatedAt: Date
 }
 
-const CARBONHYDRATES_DEFAULT = 0.1
+const CARBOHYDRATES_DEFAULT = 0.1
 
 export class Petfood implements PetfoodInterface {
     _id: number
@@ -123,7 +123,7 @@ export class Petfood implements PetfoodInterface {
     getNfe(): number {
         const nfe = 100 - (this.proteins + this.lipids + this.getFibers() + this.getAshes() + this.getMoisture())
 
-        return (nfe > 0) ? nfe : CARBONHYDRATES_DEFAULT
+        return (nfe > 0) ? nfe : CARBOHYDRATES_DEFAULT
     }
 
     getRatioCaP(): number| undefined {
@@ -144,15 +144,38 @@ export class Petfood implements PetfoodInterface {
         return ratio
     }
 
+    getDryMass(nutrient: number): number {
+        return nutrient * 100 / (100-this.getMoisture())
+    }
+
+    getMetabolizableEnergy(): number {
+        const fibers = this.getFibers()
+        const dryMassFiber = this.getDryMass(fibers)
+        const brutalEnergy = (5.7*this.proteins) + (9.5*this.lipids) + (4.1*(this.getNfe() + fibers))
+        let digestibilityEnergy, metabolisableEnergyFactor
+
+        if (this.animal === 'dogs') {
+            digestibilityEnergy = 91.2-(1.43 * dryMassFiber)
+            metabolisableEnergyFactor = 1.04
+        } else {
+            digestibilityEnergy = 87.9-(0.88 * dryMassFiber)
+            metabolisableEnergyFactor = 0.77
+        }
+
+        const digestibleEnergy = brutalEnergy * digestibilityEnergy / 100
+
+        return (digestibleEnergy - (this.proteins * metabolisableEnergyFactor))
+    }
+
     // Rapport protéines sur calories
     rpc(): number {
-        return 0
+        return round(this.proteins / this.getMetabolizableEnergy() * 1000)
     }
 
     // Rapport protéines sur phosphore
     rpp(): number|undefined {
         if (this.proteins && this.phosphorus) {
-            return Math.floor(this.proteins/this.phosphorus)
+            return round(this.proteins/this.phosphorus)
         } else {
             return undefined
         }
