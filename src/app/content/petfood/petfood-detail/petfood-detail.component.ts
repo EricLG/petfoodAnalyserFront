@@ -2,7 +2,7 @@ import { ActivatedRoute, Params } from '@angular/router'
 import { Component, OnInit } from '@angular/core'
 import { ToastrService } from 'ngx-toastr'
 
-import { Petfood } from './petfood'
+import { Petfood } from '../../../models/petfood'
 import { PetfoodService } from 'src/app/services/petfoodService'
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { first, shuffle } from 'lodash'
 
-import { Petfood } from '../../petfood-detail/petfood'
+import { Petfood } from '../../../../models/petfood'
 
 @Component({
     selector: 'app-petfood-outline',

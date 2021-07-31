@@ -19,19 +19,33 @@ export interface PetfoodInterface {
     phosphorus?: number // phosphore (P)
     omega6?: number // N-6
     omega3?: number // N-3
+    starch?: number // Amidon
     starchSource?: string // source d'amidon
     animalProteinSource?: string
     vegetalProteinSource?: string
-    monoprotein?: boolean
-    ingredients?: string
+    freshMeatMentionned?: boolean
+    ingredients?: string // string csv
     nutritionalAdditives?: string // Additifs additionnels
+    certified?: boolean // Ingrédient controlé et certifié
     comment?: string
     brandCountryOrigin?: string
+    manufacturyCountry?: string // Pays de fabrication
+    parentCompany?: string // Entreprise mère
     createdAt: Date
     updatedAt: Date
 }
 
 const CARBOHYDRATES_DEFAULT = 0.1
+const ESTIMATED_INGREDIENTS: { [animal: string]: { [dryOrWet: string]: { fibers: number, ashes: number, moisture: number } } } = {
+    cats: {
+        dry: { fibers: 3, ashes: 8, moisture: 8 },
+        wet: { fibers: 0.5, ashes: 2.5, moisture: 79 },
+    },
+    dogs: {
+        dry: { fibers: 3, ashes: 8, moisture: 10 },
+        wet: { fibers: 0.5, ashes: 8, moisture: 77 },
+    }
+}
 
 export class Petfood implements PetfoodInterface {
     _id: number
@@ -52,71 +66,64 @@ export class Petfood implements PetfoodInterface {
     phosphorus?: number
     omega6?: number
     omega3?: number
+    starch?: number
     starchSource?: string
     animalProteinSource?: string
     vegetalProteinSource?: string
-    monoprotein?: boolean
+    freshMeatMentionned?: boolean
     ingredients?: string
     nutritionalAdditives?: string
+    certified?: boolean
     comment?: string
     brandCountryOrigin?: string
+    manufacturyCountry?: string
+    parentCompany?: string
     createdAt: Date
     updatedAt: Date
 
-    constructor(petfoodInterace: PetfoodInterface) {
-        this._id = petfoodInterace._id
-        this.animal = petfoodInterace.animal
-        this.foodType = petfoodInterace.foodType
-        this.dryOrWet = petfoodInterace.dryOrWet
-        this.source = petfoodInterace.source
-        this.brand = petfoodInterace.brand
-        this.reference = petfoodInterace.reference
-        this.packaging = petfoodInterace.packaging
-        this.bio = petfoodInterace.bio
-        this.proteins = petfoodInterace.proteins
-        this.lipids = petfoodInterace.lipids
-        this.fibers = petfoodInterace.fibers
-        this.ashes = petfoodInterace.ashes
-        this.moisture = petfoodInterace.moisture
-        this.calcium = petfoodInterace.calcium
-        this.phosphorus = petfoodInterace.phosphorus
-        this.omega6 = petfoodInterace.omega6
-        this.omega3 = petfoodInterace.omega3
-        this.starchSource = petfoodInterace.starchSource
-        this.animalProteinSource = petfoodInterace.animalProteinSource
-        this.vegetalProteinSource = petfoodInterace.vegetalProteinSource
-        this.monoprotein = petfoodInterace.monoprotein
-        this.ingredients = petfoodInterace.ingredients
-        this.nutritionalAdditives = petfoodInterace.nutritionalAdditives
-        this.comment = petfoodInterace.comment
-        this.brandCountryOrigin = petfoodInterace.brandCountryOrigin
-        this.createdAt = petfoodInterace.createdAt
-        this.updatedAt = petfoodInterace.updatedAt
-    }
-
-    estimatedIngredients: {
-        [animal: string]: {
-            [dryOrWet: string]: { fibers: number, ashes: number, moisture: number }
-        }
-    } = {
-        cats: {
-            dry: { fibers: 3, ashes: 8, moisture: 8 },
-            wet: { fibers: 0.5, ashes: 2.5, moisture: 79 },
-        },
-        dogs: {
-            dry: { fibers: 3, ashes: 8, moisture: 10 },
-            wet: { fibers: 0.5, ashes: 8, moisture: 77 },
-        }
+    constructor(pfi: PetfoodInterface) {
+        this._id = pfi._id
+        this.animal = pfi.animal
+        this.foodType = pfi.foodType
+        this.dryOrWet = pfi.dryOrWet
+        this.source = pfi.source
+        this.brand = pfi.brand
+        this.reference = pfi.reference
+        this.packaging = pfi.packaging
+        this.bio = pfi.bio
+        this.proteins = pfi.proteins
+        this.lipids = pfi.lipids
+        this.fibers = pfi.fibers
+        this.ashes = pfi.ashes
+        this.moisture = pfi.moisture
+        this.calcium = pfi.calcium
+        this.phosphorus = pfi.phosphorus
+        this.omega6 = pfi.omega6
+        this.omega3 = pfi.omega3
+        this.starch = pfi.starch
+        this.starchSource = pfi.starchSource
+        this.animalProteinSource = pfi.animalProteinSource
+        this.vegetalProteinSource = pfi.vegetalProteinSource
+        this.freshMeatMentionned = pfi.freshMeatMentionned
+        this.ingredients = pfi.ingredients
+        this.nutritionalAdditives = pfi.nutritionalAdditives
+        this.certified = pfi.certified
+        this.comment = pfi.comment
+        this.brandCountryOrigin = pfi.brandCountryOrigin
+        this.manufacturyCountry = pfi.manufacturyCountry
+        this.parentCompany = pfi.parentCompany
+        this.createdAt = pfi.createdAt
+        this.updatedAt = pfi.updatedAt
     }
 
     getFibers(): number {
-        return this.fibers ? this.fibers : this.estimatedIngredients[this.animal][this.dryOrWet]['fibers']
+        return this.fibers ? this.fibers : ESTIMATED_INGREDIENTS[this.animal][this.dryOrWet]['fibers']
     }
     getAshes(): number {
-        return this.ashes ? this.ashes : this.estimatedIngredients[this.animal][this.dryOrWet]['ashes']
+        return this.ashes ? this.ashes : ESTIMATED_INGREDIENTS[this.animal][this.dryOrWet]['ashes']
     }
     getMoisture(): number {
-        return this.moisture ? this.moisture : this.estimatedIngredients[this.animal][this.dryOrWet]['moisture']
+        return this.moisture ? this.moisture : ESTIMATED_INGREDIENTS[this.animal][this.dryOrWet]['moisture']
     }
 
     // Nitrogen Free Extract (NFE) calcul - ENA : Extractif non azoté
@@ -126,6 +133,7 @@ export class Petfood implements PetfoodInterface {
         return (nfe > 0) ? nfe : CARBOHYDRATES_DEFAULT
     }
 
+    // Ratio Calcium/Phosphorus
     getRatioCaP(): number| undefined {
         let ratio
 
@@ -174,10 +182,7 @@ export class Petfood implements PetfoodInterface {
 
     // Rapport protéines sur phosphore
     rpp(): number|undefined {
-        if (this.proteins && this.phosphorus) {
-            return round(this.proteins/this.phosphorus)
-        } else {
-            return undefined
-        }
+        return (this.proteins && this.phosphorus) ? round(this.proteins/this.phosphorus) : undefined
     }
+
 }
