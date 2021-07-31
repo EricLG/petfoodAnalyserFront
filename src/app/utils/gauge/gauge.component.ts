@@ -15,7 +15,7 @@ export class GaugeComponent implements AfterViewInit {
     canvasElementRef: ElementRef<HTMLCanvasElement> | null = null;
 
     // Gauge size and padding
-    gaugeW = 120
+    gaugeW = 100
     gaugeH = 15
     gaugePadding = 5
 
