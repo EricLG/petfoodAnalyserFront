@@ -14,11 +14,10 @@ export class GaugeComponent implements AfterViewInit {
     @ViewChild('canvasElementRef', {static: false})
     canvasElementRef: ElementRef<HTMLCanvasElement> | null = null;
 
-    // Canvas and gauge size
-    canvasW = 130
-    canvasH = 25
+    // Gauge size and padding
     gaugeW = 120
     gaugeH = 15
+    gaugePadding = 5
 
     ngAfterViewInit(): void {
         if (this.canvasElementRef) {
@@ -51,7 +50,7 @@ export class GaugeComponent implements AfterViewInit {
     }
 
     /**
-     * Gauge is divided equally divided by 5, to shape 3 rectangles : Red : 2 unitRect, orange1 unitRect, green: 2 unitRect
+     * Gauge is divided equally divided by 5, to shape 3 rectangles : red : 2 unitRect, orange1 unitRect, green: 2 unitRect
      * @param ctx CanvasContext
      * @param unitRect base width of unit rectangle
      */
@@ -60,17 +59,15 @@ export class GaugeComponent implements AfterViewInit {
         const ORANGE = '#f7941e'
         const GREEN = '#00a14b'
         const radius = 7
-        const gaugeTopY = (this.canvasH - this.gaugeH) /2
-        const gaugeBottomY = this.gaugeH
 
         ctx.fillStyle = RED
-        this.drawFirstRoundRect(ctx, 0, gaugeTopY, 2*unitRect, gaugeBottomY, radius)
+        this.drawFirstRoundRect(ctx, this.gaugePadding, this.gaugePadding, 2*unitRect, this.gaugeH, radius)
 
         ctx.fillStyle = ORANGE
-        this.drawMiddleRect(ctx, 2*unitRect, gaugeTopY, unitRect, gaugeBottomY)
+        this.drawMiddleRect(ctx, this.gaugePadding + 2*unitRect, this.gaugePadding, unitRect, this.gaugeH)
 
         ctx.fillStyle = GREEN
-        this.drawLastRoundRect(ctx, 3*unitRect, gaugeTopY, 2*unitRect, gaugeBottomY, radius)
+        this.drawLastRoundRect(ctx, this.gaugePadding + 3*unitRect, this.gaugePadding, 2*unitRect, this.gaugeH, radius)
     }
 
     getBoundaries(label: string, animal: string): {boundaryLow: number, boundaryHight: number} {
@@ -97,18 +94,18 @@ export class GaugeComponent implements AfterViewInit {
         const p2 = {x: boundaryHight, y: 3*unitRect}
         const a = (p2.y - p1.y) / (p2.x - p1.x)
         const b = p1.y - a*p1.x
-        let positionX = (a*cursor) + b
+        let positionX = (a*cursor) + b + this.gaugePadding
 
         if (positionX >= this.gaugeW) {
-            positionX = this.gaugeW - 1
-        } else if (positionX <= 0) {
-            positionX = 1
+            positionX = this.gaugeW
+        } else if (positionX <= 2*this.gaugePadding) {
+            positionX = 2*this.gaugePadding
         }
 
         ctx.beginPath()
         ctx.lineWidth = 3
         ctx.moveTo(positionX, 0)
-        ctx.lineTo(positionX, this.canvasH)
+        ctx.lineTo(positionX, this.gaugeH + 2*this.gaugePadding)
         ctx.stroke()
     }
 
