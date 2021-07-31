@@ -16,7 +16,7 @@ export class GaugeComponent implements AfterViewInit {
 
     // Canvas and gauge size
     canvasW = 130
-    canvasH = 24
+    canvasH = 25
     gaugeW = 120
     gaugeH = 15
 
@@ -26,8 +26,10 @@ export class GaugeComponent implements AfterViewInit {
 
             if (ctx) {
                 if (this.cursor) {
-                    this.drawGauge(ctx)
-                    this.drawCursor(ctx, this.cursor)
+                    const unitRect = this.gaugeW/5
+
+                    this.drawGauge(ctx, unitRect)
+                    this.drawCursor(ctx, this.cursor, unitRect)
                 }
             }
         }
@@ -48,7 +50,12 @@ export class GaugeComponent implements AfterViewInit {
         }
     }
 
-    drawGauge(ctx: CanvasRenderingContext2D): void {
+    /**
+     * Gauge is divided equally divided by 5, to shape 3 rectangles : Red : 2 unitRect, orange1 unitRect, green: 2 unitRect
+     * @param ctx CanvasContext
+     * @param unitRect base width of unit rectangle
+     */
+    drawGauge(ctx: CanvasRenderingContext2D, unitRect: number): void {
         const RED = '#ed1c24'
         const ORANGE = '#f7941e'
         const GREEN = '#00a14b'
@@ -57,13 +64,13 @@ export class GaugeComponent implements AfterViewInit {
         const gaugeBottomY = this.gaugeH
 
         ctx.fillStyle = RED
-        this.drawFirstRoundRect(ctx, 0, gaugeTopY, (this.gaugeW/3), gaugeBottomY, radius)
+        this.drawFirstRoundRect(ctx, 0, gaugeTopY, 2*unitRect, gaugeBottomY, radius)
 
         ctx.fillStyle = ORANGE
-        this.drawMiddleRect(ctx, this.gaugeW/3, gaugeTopY, (this.gaugeW/3), gaugeBottomY)
+        this.drawMiddleRect(ctx, 2*unitRect, gaugeTopY, unitRect, gaugeBottomY)
 
         ctx.fillStyle = GREEN
-        this.drawLastRoundRect(ctx, this.gaugeW*2/3, gaugeTopY, this.gaugeW/3, gaugeBottomY, radius)
+        this.drawLastRoundRect(ctx, 3*unitRect, gaugeTopY, 2*unitRect, gaugeBottomY, radius)
     }
 
     getBoundaries(label: string, animal: string): {boundaryLow: number, boundaryHight: number} {
@@ -76,13 +83,21 @@ export class GaugeComponent implements AfterViewInit {
         }
     }
 
-    // Some Math for scaling : y = ax+b, a = (y2 - y1)/(x2 - x1), b = y - ax; and we have several points with boundaries.
-    // Exemple for rpc dogs : (50, 0), (65, 100/3), (80, 200/3), (95, 100)
-    drawCursor(ctx: CanvasRenderingContext2D, cursor: number): void {
+    /**
+     * Draw the cursor, scaled to the gauge with the boundary points
+     * Some Math for scaling : y = ax+b, a = (y2 - y1)/(x2 - x1), b = y - ax
+     * We always have 2 points with boundaries : example for rpc dogs : (65, unitRect*2), (80, unitRect*3)
+     * @param ctx CanvasContext
+     * @param cursor position of the cursor to convert to the gauge scale
+     * @param unitRect base width of unit rectangle
+     */
+    drawCursor(ctx: CanvasRenderingContext2D, cursor: number, unitRect: number): void {
         const { boundaryLow, boundaryHight } = this.getBoundaries(this.label, this.animal)
-        const diff = boundaryHight - boundaryLow
-        const a = (2*(this.gaugeW/3) - (this.gaugeW/3)) / (diff)
-        let positionX = (a*cursor) - a*(boundaryLow - diff)
+        const p1 = {x: boundaryLow, y: 2*unitRect}
+        const p2 = {x: boundaryHight, y: 3*unitRect}
+        const a = (p2.y - p1.y) / (p2.x - p1.x)
+        const b = p1.y - a*p1.x
+        let positionX = (a*cursor) + b
 
         if (positionX >= this.gaugeW) {
             positionX = this.gaugeW - 1
