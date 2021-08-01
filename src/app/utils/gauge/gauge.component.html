@@ -1,10 +1,10 @@
-<div class="d-flex flex-row">
-    <div>
-        <span class="fs-12">{{ label }}</span> :
+<div class="d-flex flex-md-column flex-lg-row align-items-center">
+    <div class="d-flex">
+        <span class="fs-12">{{ label }} :&nbsp;</span>
         <span class="fs-12" [class.text-danger]="cursor === undefined">{{ getCursor() }}</span>
     </div>
-    <div class="pl-1 flex-fill">
+    <div class="d-flex flex-grow-1">
         <canvas *ngIf="cursor" #canvasElementRef width="{{ gaugeW + 2*gaugePadding }}" height="{{ gaugeH + 2*gaugePadding }}"></canvas>
-        <div *ngIf="!cursor" class="text-danger text-center"><span class="fs-12 font-weight-bold">N/A</span></div>
+        <div *ngIf="!cursor" class="text-danger text-center flex-grow-1"><span class="fs-12 font-weight-bold">N/A</span></div>
     </div>
 </div>

@@ -3,6 +3,10 @@
 @import "styles_bootstrap_override.scss";
 @import "~bootstrap/scss/bootstrap";
 
+.container {
+  max-width: 990px !important;
+}
+
 .bg-grey{
   background: #989898;
 }
