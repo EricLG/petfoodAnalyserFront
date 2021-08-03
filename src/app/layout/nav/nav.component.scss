@@ -1,0 +1,11 @@
+.bgc-nav-main {
+  background-color: var(--nav-main);
+}
+
+.active {
+  background-color: var(--nav-shadow);
+}
+
+nav {
+  border: 2px solid var(--nav-shadow);
+}

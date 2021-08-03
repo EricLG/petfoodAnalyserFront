@@ -1,15 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/">Petfood</a>
-    <div class="navbar-collapse">
+<nav class="navbar navbar-expand-md bgc-nav-main py-0">
+    <a class="navbar-brand text-white" routerLink="/">Accueil</a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            <li [routerLinkActive]="['active']" class="nav-item">
+                <a (click)="isMenuCollapsed = true" class="nav-link text-white font-weight-bold fs-15" routerLink="/dogs">Nourriture Chien</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/dogs">Chiens</a>
+            <li [routerLinkActive]="['active']" class="nav-item">
+                <a (click)="isMenuCollapsed = true" class="nav-link text-white font-weight-bold fs-15" routerLink="/cats">Nourriture Chat</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/cats">Chats</a>
+            <li [routerLinkActive]="['active']" class="nav-item">
+                <a (click)="isMenuCollapsed = true" class="nav-link text-white font-weight-bold fs-15" href="#">Quel aliment pour mon animal ?</a>
+            </li>
+            <li [routerLinkActive]="['active']" class="nav-item">
+                <a (click)="isMenuCollapsed = true" class="nav-link text-white font-weight-bold fs-15" href="#">Contact</a>
             </li>
         </ul>
     </div>
