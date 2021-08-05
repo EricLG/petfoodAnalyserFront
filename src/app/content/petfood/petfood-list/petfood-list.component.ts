@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { ActivatedRoute, Params } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+
 import { PetfoodService } from 'src/app/services/petfoodService'
 
 import { Petfood } from '../petfood-detail'
@@ -10,14 +12,17 @@ import { Petfood } from '../petfood-detail'
 })
 export class PetfoodListComponent implements OnInit {
 
-    @Input() animal = ''
-
     petfoodList: Petfood[] = []
 
-    constructor(private petfoodService: PetfoodService) {}
+    constructor(
+        private route: ActivatedRoute,
+        private petfoodService: PetfoodService
+    ) {}
 
     ngOnInit(): void {
-        this.getPetfoodList(this.animal)
+        this.route.params.subscribe((params: Params) => {
+            this.getPetfoodList(params['animal'])
+        })
     }
 
     getPetfoodList(animal: string): void {

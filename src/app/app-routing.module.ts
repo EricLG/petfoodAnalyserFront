@@ -1,15 +1,13 @@
 import { RouterModule, Routes } from '@angular/router'
 import { NgModule } from '@angular/core'
 
-import { CatsComponent } from './content/cats'
-import { DogsComponent } from './content/dogs'
 import { HomeComponent } from './content/home'
 import { PetfoodDetailComponent } from './content/petfood/petfood-detail'
+import { PetfoodListComponent } from './content/petfood/petfood-list/petfood-list.component'
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'cats', component: CatsComponent },
-    { path: 'dogs', component: DogsComponent },
+    { path: 'petfoods/:animal', component: PetfoodListComponent },
     { path: 'petfood/:id/detail', component: PetfoodDetailComponent },
 ]
 
