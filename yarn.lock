@@ -1659,18 +1659,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ng-bootstrap/ng-bootstrap@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@ng-bootstrap/ng-bootstrap@npm:9.1.1"
+"@ng-bootstrap/ng-bootstrap@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@ng-bootstrap/ng-bootstrap@npm:10.0.0"
   dependencies:
-    tslib: ^2.0.0
+    tslib: ^2.1.0
   peerDependencies:
-    "@angular/common": ^11.0.0
-    "@angular/core": ^11.0.0
-    "@angular/forms": ^11.0.0
-    "@angular/localize": ^11.0.0
+    "@angular/common": ^12.0.0
+    "@angular/core": ^12.0.0
+    "@angular/forms": ^12.0.0
+    "@angular/localize": ^12.0.0
     rxjs: ^6.5.5
-  checksum: 406f2da12da7143c833a1f3e043ecebfd048a8c78573bfe0f6a0c07361594a4293f58eb500e3f30c8b60816bad81e87122fc930b83a890f258517ffe419bbdae
+  checksum: 7cf66228e1e258cb71e91191b9141d46cc6ab46d73d78176507805f795ef12b4f813fb558bb6ab6527a95cfac1d58ff52221963b1bd39b801f45c6ebe30183dd
   languageName: node
   linkType: hard
 
@@ -7821,7 +7821,7 @@ fsevents@~2.3.1:
     "@angular/platform-browser": ~12.0.1
     "@angular/platform-browser-dynamic": ~12.0.1
     "@angular/router": ~12.0.1
-    "@ng-bootstrap/ng-bootstrap": ^9.1.1
+    "@ng-bootstrap/ng-bootstrap": ^10.0.0
     "@types/jasmine": ~3.6.0
     "@types/lodash": ^4.14.170
     "@types/node": ^15.6.1
