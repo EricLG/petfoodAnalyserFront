@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PetfoodDetailComponent } from './petfood-detail.component'
+import { PetfoodOutlineComponent } from './petfood-outline.component'
 
 describe('PetfoodDetailComponent', () => {
-    let component: PetfoodDetailComponent
-    let fixture: ComponentFixture<PetfoodDetailComponent>
+    let component: PetfoodOutlineComponent
+    let fixture: ComponentFixture<PetfoodOutlineComponent>
 
     beforeEach(async() => {
         await TestBed.configureTestingModule({
-            declarations: [PetfoodDetailComponent]
+            declarations: [PetfoodOutlineComponent]
         })
             .compileComponents()
     })
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(PetfoodDetailComponent)
+        fixture = TestBed.createComponent(PetfoodOutlineComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

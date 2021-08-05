@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 
 import { PetfoodService } from 'src/app/services/petfoodService'
 
-import { Petfood } from '../petfood-detail'
+import { Petfood } from '../../../models/petfood'
 
 @Component({
     selector: 'app-petfood-list',

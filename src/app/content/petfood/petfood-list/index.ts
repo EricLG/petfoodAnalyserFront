@@ -1,1 +1,1 @@
-export { PetfoodListModule } from './petfood-list.module'
+export { PetfoodListComponent } from './petfood-list.component'
