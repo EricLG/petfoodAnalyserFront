@@ -1,0 +1,29 @@
+<div class="border">
+    <div class="card">
+        <h4 class="fs-15 verdana" (click)="firstDivCollapse.toggle()" [attr.aria-expanded]="!isFirstDivCollapsed"
+        aria-controls="collapseExample">TYPE D'ALIMENT <i class="fas {{ getToggleIcon(isFirstDivCollapsed) }}"></i> </h4>
+        <div #firstDivCollapse="ngbCollapse" [(ngbCollapse)]="isFirstDivCollapsed">
+            <hr class="dottedHr">
+            <div>Aliment déshydraté (?)</div>
+            <div>Croquettes (???)</div>
+            <div>Patée complète(???)</div>
+            <div>Patée complémentaire (???)</div>
+            <div>BARF/RM (???)</div>
+        </div>
+    </div>
+    <div class="card"></div>
+
+    <div class="card">
+        <h4 class="fs-15 verdana" (click)="secondDivCollapse.toggle()" [attr.aria-expanded]="!isSecondDivCollapsed"
+        aria-controls="collapseExample">MARQUE <i class="fas {{ getToggleIcon(isSecondDivCollapsed) }}"></i> </h4>
+        <div #secondDivCollapse="ngbCollapse" [(ngbCollapse)]="isSecondDivCollapsed">
+            <hr class="dottedHr">
+            <div>Aliment déshydraté (?)</div>
+            <div>Croquettes (???)</div>
+            <div>Patée complète(???)</div>
+            <div>Patée complémentaire (???)</div>
+            <div>BARF/RM (???)</div>
+        </div>
+    </div>
+    <div class="card"></div>
+</div>
